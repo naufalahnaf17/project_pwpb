@@ -25,7 +25,6 @@ class dokterController extends Controller
   public function edit($id)
   {
     $data['dokter'] = \DB::table('t_dokter')->find($id);
-    var_dump($data);
     return view('dokter.form-dokter', $data);
   }
 }
