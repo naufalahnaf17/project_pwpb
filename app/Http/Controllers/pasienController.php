@@ -28,4 +28,15 @@ class pasienController extends Controller
         return redirect('/pasien/input')->with('error','Data gagal ditambahkan');
       }
     }
+
+    public function delete(Request $request,$id)
+    {
+      $status = \DB::table('t_pasien')->where('id', $id)->delete();
+
+      if ($status) {
+        return redirect ('/pasien')->with('success','Data telah dihapus');
+      } else {
+        return redirect('/pasien')->with('error','Data gagal dihapus');
+      }
+    }
 }

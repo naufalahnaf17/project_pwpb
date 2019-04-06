@@ -8,6 +8,18 @@
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+            <br>
+            @if(session('success'))
+              <div class="alert alert-success">
+                {{ session ('success') }}
+              </div>
+            @endif
+
+            @if(session('error'))
+              <div class="alert alert-error">
+                {{ session ('error') }}
+              </div>
+            @endif
         </div>
 
 
@@ -59,9 +71,13 @@
                             </td>
                             <td>
                                 <center>
-                                    <a href="#" class="btn btn-danger btn-circle ml-1">
+                                  <!-- <form action="{{ url('/pasien',$row->id) }}" method="POST">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger btn-circle ml-1">
                                         <i class="fas fa-trash"></i>
-                                    </a>
+                                    </button>
+                                  </form> -->
                                 </center>
                             </td>
                         </tr>
