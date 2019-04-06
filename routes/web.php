@@ -23,6 +23,7 @@ Route::get('data-dokter', 'dokterController@index');
 Route::get('/data-dokter/{id}/edit', 'dokterController@edit');
 Route::get('data-dokter/add-dokter', 'dokterController@create');
 Route::get('/pasien', 'pasienController@index');
-Route::get('/add-pasien', 'pasienController@input');
+Route::get('pasien/add-pasien', 'pasienController@input');
+Route::post('pasien', 'pasienController@store');
 Route::get('/data-spesialis', 'SpesialisController@index');
 Route::get('/data-ruangan', 'RuanganController@index');

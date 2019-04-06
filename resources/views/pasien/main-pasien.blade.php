@@ -12,7 +12,7 @@
 
 
         <div class="card-header py-3">
-            <a href="{{url('add-pasien')}}" class="btn btn-success btn-icon-split">
+            <a href="{{url('pasien/add-pasien')}}" class="btn btn-success btn-icon-split">
                 <span class="icon text-white-50">
                     <i class="fas fa-plus"></i>
                 </span>
@@ -40,15 +40,16 @@
                         </tr>
                     </thead>
                     <tbody>
+                      @foreach($pasien as $row)
                         <tr>
-                            <td>00001</td>
-                            <td>Naruto Uchiha</td>
-                            <td>?</td>
-                            <td>OB</td>
-                            <td>Konoha</td>
-                            <td>01-01-2000BC</td>
-                            <td>Sakura</td>
-                            <td>Sudah</td>
+                            <td>{{isset($i) ? ++$i : $i = 1 }}</td>
+                            <td>{{$row->nama_pasien}}</td>
+                            <td>{{$row->gender}}</td>
+                            <td>{{$row->golongan_darah}}</td>
+                            <td>{{$row->tempat_lahir}}</td>
+                            <td>{{$row->tanggal_lahir}}</td>
+                            <td>{{$row->nama_ibu}}</td>
+                            <td>{{$row->status_menikah}}</td>
                             <td>
                                 <center>
                                     <a href="#" class="btn btn-warning btn-circle">
@@ -65,6 +66,7 @@
                             </td>
                         </tr>
                     </tbody>
+                    @endforeach
                 </table>
             </div>
         </div>
@@ -75,4 +77,4 @@
 
 </div>
 <!-- End of Main Content -->
-@endsection 
+@endsection
