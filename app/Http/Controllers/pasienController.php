@@ -12,5 +12,6 @@ class pasienController extends Controller
 
     public function input(){
       return view('pasien.form-pasien');
+      // kmkmkm
     }
 }
