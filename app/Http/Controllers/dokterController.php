@@ -26,5 +26,6 @@ class dokterController extends Controller
   {
     $data['dokter'] = \DB::table('t_dokter')->find($id);
     return view('dokter.form-dokter', $data);
+    //cek ko
   }
 }
