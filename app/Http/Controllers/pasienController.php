@@ -24,7 +24,7 @@ class pasienController extends Controller
         'gender' => 'required',
         'golongan_darah' => 'required',
         'tempat_lahir' => 'required|string',
-        'tanggal_lahir' => 'required|numeric',
+        'tanggal_lahir' => 'required',
         'nama_ibu' => 'required|string',
         'status_menikah' => 'required',
       ];
@@ -54,7 +54,7 @@ class pasienController extends Controller
         'gender' => 'required',
         'golongan_darah' => 'required',
         'tempat_lahir' => 'required|string',
-        'tanggal_lahir' => 'required|numeric',
+        'tanggal_lahir' => 'required',
         'nama_ibu' => 'required|string',
         'status_menikah' => 'required',
       ];
