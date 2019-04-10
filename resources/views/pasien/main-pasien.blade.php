@@ -22,7 +22,6 @@
             @endif
         </div>
 
-
         <div class="card-header py-3">
             <a href="{{url('pasien/add-pasien')}}" class="btn btn-success btn-icon-split">
                 <span class="icon text-white-50">
@@ -31,7 +30,6 @@
                 <span class="text">Tambah</span>
             </a>
         </div>
-
 
         <div class="card-body">
             <div class="table-responsive">
@@ -64,20 +62,20 @@
                             <td>{{$row->status_menikah}}</td>
                             <td>
                                 <center>
-                                    <a href="#" class="btn btn-warning btn-circle">
+                                    <a href="{{ url('/pasien/' . $row->id . '/edit' )}}" class="btn btn-warning btn-circle">
                                         <i class="fas fa-user-edit"></i>
                                     </a>
                                 </center>
                             </td>
                             <td>
                                 <center>
-                                  <!-- <form action="{{ url('/pasien',$row->id) }}" method="POST">
+                                  <form class="" action="{{ url('/pasien/' . $row->id) }}" method="post">
                                     @method('DELETE')
                                     @csrf
-                                    <button type="submit" class="btn btn-danger btn-circle ml-1">
+                                    <button class="btn btn-danger btn-circle ml-1" type="submit" name="button">
                                         <i class="fas fa-trash"></i>
                                     </button>
-                                  </form> -->
+                                  </form>
                                 </center>
                             </td>
                         </tr>

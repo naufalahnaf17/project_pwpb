@@ -18,6 +18,17 @@ class pasienController extends Controller
 
     public function store(Request $request)
     {
+      $rule = [
+        'nama_pasien' => 'required|string',
+        'gender' => 'required',
+        'golongan_darah' => 'required',
+        'tempat_lahir' => 'required|string',
+        'tanggal_lahir' => 'required|numeric',
+        'nama_ibu' => 'required|string',
+        'status_menikah' => 'required',
+      ];
+      $this->validate($request,$rule);
+
       $input = $request->all();
       unset ($input['_token']);
       $status = \DB::table('t_pasien')->insert($input);
@@ -29,14 +40,45 @@ class pasienController extends Controller
       }
     }
 
-    public function delete(Request $request,$id)
+    public function edit(Request $request, $id)
     {
-      $status = \DB::table('t_pasien')->where('id', $id)->delete();
+      $data['pasien'] = \DB::table('t_pasien')->find($id);
+      return view('pasien.form-pasien', $data);
+    }
+
+    public function update(Request $request,$id)
+    {
+      $rule = [
+        'nama_pasien' => 'required|string',
+        'gender' => 'required',
+        'golongan_darah' => 'required',
+        'tempat_lahir' => 'required|string',
+        'tanggal_lahir' => 'required|numeric',
+        'nama_ibu' => 'required|string',
+        'status_menikah' => 'required',
+      ];
+      $this->validate($request,$rule);
+      $input = $request->all();
+      unset($input['_token']);
+      unset($input['_method']);
+
+      $status = \DB::table('t_pasien')->where('id',$id)->update($input);
+
+      if ($status) {
+        return redirect('/pasien')->with('success','Data berhasil diubah');
+      } else {
+        return redirect('pasien/input')->with('error','Data gagal diubah');
+      }
+    }
+
+    public function destroy(Request $request, $id)
+    {
+      $status = \DB::table('t_pasien')->where('id',$id)->delete();
 
       if ($status) {
         return redirect ('/pasien')->with('success','Data telah dihapus');
       } else {
-        return redirect('/pasien')->with('error','Data gagal dihapus');
+        return redirect('/pasien/input')->with('error','Data gagal dihapus');
       }
     }
 }

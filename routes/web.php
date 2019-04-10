@@ -22,9 +22,14 @@ Route::get('/index', function () {
 Route::get('data-dokter', 'dokterController@index');
 Route::get('/data-dokter/{id}/edit', 'dokterController@edit');
 Route::get('data-dokter/add-dokter', 'dokterController@create');
+
 Route::get('/pasien', 'pasienController@index');
 Route::get('pasien/add-pasien', 'pasienController@input');
 Route::post('pasien', 'pasienController@store');
-Route::delete('/pasien/{id}', 'pasienController@delete');
+Route::get('/pasien/{id}/edit', "pasienController@edit");
+Route::patch('/pasien/{id}', 'pasienController@update');
+
+Route::delete('/pasien/{id}', 'pasienController@destroy');
+
 Route::get('/data-spesialis', 'SpesialisController@index');
 Route::get('/data-ruangan', 'RuanganController@index');
