@@ -36,3 +36,12 @@ Route::delete('/pasien/{id}', 'pasienController@destroy');
 
 Route::get('/data-spesialis', 'SpesialisController@index');
 Route::get('/data-ruangan', 'RuanganController@index');
+
+Route::get('main-pendaftaran', 'PendaftaranController@index');
+
+Route::get('main-tempat-tidur', 'TempatTidurController@index');
+Route::get('main-tempat-tidur/add', 'TempatTidurController@input');
+
+
+Route::get('main-rawat-jalan', 'RawatJalanController@index');
+Route::get('main-rawat-jalan/add', 'RawatJalanController@input');
