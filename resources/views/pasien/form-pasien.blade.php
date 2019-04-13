@@ -4,11 +4,32 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
-    <form action="{{ url('pasien') }}" method="POST">
+  @if(session('error'))
+  <div class="alert alert-danger">
+    {{ session('error') }}
+  </div>
+  @endif
+
+  @if(count($errors) > 0)
+  <div class="alert alert-danger">
+    <strong>Alert</strong>
+    <br>
+    <ul>
+      @foreach ($errors->all() as $error)
+      <li>{{ $error}}</li>
+      @endforeach
+    </ul>
+  </div>
+  @endif
+
+    <form action="{{ url('pasien', @$pasien->id) }}" method="POST">
       @csrf
+      @if(!empty($pasien))
+        @method('PATCH')
+      @endif
         <div class="form-group ">
             <label for="inputEmail4">Nama Pasien</label>
-            <input type="text" class="form-control" id="inputEmail4" name="nama_pasien" placeholder="Nama Pasien">
+            <input type="text" class="form-control" value="{{ old('nama_pasien', @$pasien->nama_pasien) }}" id="inputEmail4" name="nama_pasien" placeholder="Nama Pasien">
         </div>
         <fieldset class="form-group">
             <legend class="col-form-label col-sm-2 pt-0">Gender</legend>

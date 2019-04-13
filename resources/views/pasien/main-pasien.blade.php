@@ -8,8 +8,19 @@
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
-        </div>
+            <br>
+            @if(session('success'))
+              <div class="alert alert-success">
+                {{ session ('success') }}
+              </div>
+            @endif
 
+            @if(session('error'))
+              <div class="alert alert-error">
+                {{ session ('error') }}
+              </div>
+            @endif
+        </div>
 
         <div class="card-header py-3">
             <a href="{{url('pasien/add-pasien')}}" class="btn btn-success btn-icon-split">
@@ -19,7 +30,6 @@
                 <span class="text">Tambah</span>
             </a>
         </div>
-
 
         <div class="card-body">
             <div class="table-responsive">
@@ -52,16 +62,20 @@
                             <td>{{$row->status_menikah}}</td>
                             <td>
                                 <center>
-                                    <a href="#" class="btn btn-warning btn-circle">
+                                    <a href="{{ url('/pasien/' . $row->id . '/edit' )}}" class="btn btn-warning btn-circle">
                                         <i class="fas fa-user-edit"></i>
                                     </a>
                                 </center>
                             </td>
                             <td>
                                 <center>
-                                    <a href="#" class="btn btn-danger btn-circle ml-1">
+                                  <form class="" action="{{ url('/pasien/' . $row->id) }}" method="post">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button class="btn btn-danger btn-circle ml-1" type="submit" name="button">
                                         <i class="fas fa-trash"></i>
-                                    </a>
+                                    </button>
+                                  </form>
                                 </center>
                             </td>
                         </tr>

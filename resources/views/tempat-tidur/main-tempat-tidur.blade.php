@@ -1,5 +1,5 @@
 @extends('layouts.blank')
-@section('title','Data Dokter')
+@section('title','Data Tempat Tidur')
 @section('content')
 <!-- Begin Page Content -->
 <div class="container-fluid">
@@ -7,48 +7,45 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Data Pasien</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Kelola Data Tempat Tidur</h6>
         </div>
 
 
         <div class="card-header py-3">
-            <a href="{{url('data-dokter/add-dokter')}}" class="btn btn-success btn-icon-split">
+            <a href="{{url('main-tempat-tidur/add')}}" class="btn btn-success btn-icon-split">
                 <span class="icon text-white-50">
                     <i class="fas fa-plus"></i>
                 </span>
                 <span class="text">Tambah</span>
             </a>
         </div>
-        
+
 
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>No</th>
-                            <th>Nama Dokter</th>
-                            <th>No HP</th>
-                            <th>Spesialis</th>
-                            <th>No Izin Praktek</th>
-                            <th>Alumni</th>
-                            <th colspan="2">
+                            <th class="m-0 font-weight-bold text-primary"> No</th>
+                            <th class="m-0 font-weight-bold text-primary"><i class="fas fa-thumbtack"></i> Kode Tempat Tidur</th>
+                            <th class="m-0 font-weight-bold text-primary"> Nama Ruangan</th>
+                            <th class="m-0 font-weight-bold text-primary"> Nama Gedung</th>
+                            <th class="m-0 font-weight-bold text-primary"> Status</th>
+                            <th class="m-0 font-weight-bold text-primary" colspan="2">
                                 <center>Action</center>
                             </th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($dokter as $row)
                         <tr>
-                            <td>{{isset($i) ? ++$i : $i = 1 }}</td>
-                            <td>{{$row->nama_dokter}}</td>
-                            <td>{{$row->no_hp}}</td>
-                            <td>{{$row->id_spesialis}}</td>
-                            <td>{{$row->no_izin_praktek}}</td>
-                            <td>{{$row->alumni}}</td>
+                            <td>1</td>
+                            <td>006</td>
+                            <td>Ruangan melati</td>
+                            <td>Gedung Cut Nyak Dien</td>
+                            <td>Kosong</td>
                             <td>
                                 <center>
-                                    <a href="{{url('/data-dokter/'.$row->id. '/edit')}}" class="btn btn-warning btn-circle">
+                                    <a href="#" class="btn btn-warning btn-circle">
                                         <i class="fas fa-user-edit"></i>
                                     </a>
                                 </center>
@@ -61,7 +58,6 @@
                                 </center>
                             </td>
                         </tr>
-                        @endforeach
                     </tbody>
                 </table>
             </div>
