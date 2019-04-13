@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 class UserController extends Controller
 {
 
-    use AuthenticatesUsers;
+    // use AuthenticatesUsers;
 
 
     public function __construct()
