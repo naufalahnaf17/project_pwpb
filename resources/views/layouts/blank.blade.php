@@ -56,13 +56,13 @@
 
             <li class="nav-item">
                 <a class="nav-link" href="{{url('data-dokter')}}">
-                    <i class="fas fa-stethoscope"></i>
+                  <i class="fas fa-user-md"></i>
                     <span>Data Dokter</span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="{{url('/pasien')}}">
-                    <i class="fas fa-stethoscope"></i>
+                  <i class="fas fa-procedures"></i>
                     <span>Data Pasien</span></a>
             </li>
 
@@ -80,6 +80,25 @@
                     </div>
                 </div>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{url('main-pendaftaran')}}">
+                    <i class="fas fa-scroll"></i>
+                    <span>Form Pendaftaran</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{url('main-tempat-tidur')}}">
+                    <i class="fas fa-bed"></i>
+                    <span>Data Tempat Tidur</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{url('main-rawat-jalan')}}">
+                    <i class="fas fa-bed"></i>
+                    <span>Laporan Rawat Jalan</span></a>
+            </li>
+
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
