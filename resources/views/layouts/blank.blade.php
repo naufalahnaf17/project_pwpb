@@ -18,6 +18,13 @@
     <!-- Custom styles for this template-->
     <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
 
+    <!-- sweet alert -->
+    <link rel=”stylesheet” href=" {{asset('dist/sweetalert2.css')}}">
+
+    <!-- sweet alert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    @include('sweet::alert')
+
 </head>
 
 <body id="page-top">
@@ -77,6 +84,7 @@
                         <h6 class="collapse-header">Data Master</h6>
                         <a class="collapse-item" href="{{url('/data-spesialis')}}">Data Spesialis</a>
                         <a class="collapse-item" href="{{url('/data-ruangan')}}">Data Ruangan</a>
+                        <a class="collapse-item" href="{{url('/data-gedung')}}">Data Gedung</a>
                     </div>
                 </div>
             </li>
@@ -222,7 +230,12 @@
 
         <!-- Custom scripts for all pages-->
         <script src="{{asset('js/sb-admin-2.min.js')}}"></script>
+        <script src="{{asset('js/app.js')}}"></script>
 
+
+
+
+        @yield('js')
 </body>
 
 </html>
