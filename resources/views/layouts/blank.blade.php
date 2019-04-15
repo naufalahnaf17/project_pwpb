@@ -17,7 +17,8 @@
 
     <!-- Custom styles for this template-->
     <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
-
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        @include('sweet::alert')
 </head>
 
 <body id="page-top">
@@ -64,7 +65,6 @@
                 <a class="nav-link" href="{{url('/pasien')}}">
                   <i class="fas fa-procedures"></i>
                     <span>Data Pasien</span></a>
-                    //test
             </li>
 
             <!-- Nav Item - Pages Collapse Menu -->
@@ -224,7 +224,7 @@
 
         <!-- Custom scripts for all pages-->
         <script src="{{asset('js/sb-admin-2.min.js')}}"></script>
-
+@yield('js')
 </body>
 
 </html>
