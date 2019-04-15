@@ -64,6 +64,7 @@
                 <a class="nav-link" href="{{url('/pasien')}}">
                   <i class="fas fa-procedures"></i>
                     <span>Data Pasien</span></a>
+                    //test
             </li>
 
             <!-- Nav Item - Pages Collapse Menu -->
@@ -77,7 +78,7 @@
                         <h6 class="collapse-header">Data Master</h6>
                         <a class="collapse-item" href="{{url('/data-spesialis')}}">Data Spesialis</a>
                         <a class="collapse-item" href="{{url('/data-ruangan')}}">Data Ruangan</a>
-                        <a class="collapse-item" href="{{url('/data-gedung')}}">Data Gedung</a>                          
+                        <a class="collapse-item" href="{{url('/data-gedung')}}">Data Gedung</a>
                     </div>
                 </div>
             </li>
