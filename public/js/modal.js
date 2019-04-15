@@ -45,13 +45,14 @@ $('#deleteGedung').on('show.bs.modal', function (event) {
 $('#editRuangan').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget) // Button that triggered the modal
     var nama_gedung = button.data('gedung')
+    var id_gedung = button.data('id_gedung')
     var id_ruangan = button.data('id_ruangan')
     var no_ruangan = button.data('no_ruangan')
     var nama_ruangan = button.data('nama_ruangan')
     var harga = button.data('harga')
     console.log(nama_gedung)
     var modal = $(this)
-    // modal.find('.modal-body #optionValue').val(nama_gedung)
+    // modal.find('.modal-body .form-control').attr("<option value = '" + id_gedung + "'>" + nama_gedung + "</option>")
     modal.find('.modal-body #no_ruangan').val(no_ruangan)
     modal.find('.modal-body #nama_ruangan').val(nama_ruangan)
     modal.find('.modal-body #harga').val(harga)

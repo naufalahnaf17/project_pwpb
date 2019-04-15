@@ -56,7 +56,7 @@
                             <td>Rp. {{$row->harga}}</td>
                             <td>
                                 <center>
-                                    <button class="btn btn-warning btn-circle" data-toggle="modal" data-target="#editRuangan" data-id_ruangan="{{$row->id}}" data-no_ruangan="{{$row->no_ruangan}}" data-nama_ruangan="{{$row->nama_ruangan}}" data-gedung="{{$row->id_gedung}}" data-harga="{{$row->harga}}">
+                                    <button class="btn btn-warning btn-circle" data-toggle="modal" data-target="#editRuangan" data-id_ruangan="{{$row->id}}" data-no_ruangan="{{$row->no_ruangan}}" data-nama_ruangan="{{$row->nama_ruangan}}" data-id_gedung={{$row->id_gedung}} data-gedung="{{$row->nama_gedung}}" data-harga="{{$row->harga}}">
                                         <i class="fas fa-user-edit"></i>
                                     </button>
                                 </center>
@@ -215,6 +215,13 @@
 <script type="text/javascript">
     $(window).on('load', function() {
         $('#tambah').modal('show');
+    });
+
+    $(document).ready(function() {
+        $('#tambah').modal({
+            backdrop: 'static',
+            keyboard: false
+        });
     });
 </script>
 @endif
