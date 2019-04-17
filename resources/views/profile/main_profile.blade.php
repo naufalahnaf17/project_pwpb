@@ -67,6 +67,7 @@
                       M.Rifki Firmansyah <br>
                       Naufal Ahnaf <br>
                       Viko Muhammad <br>
+                      XI-RPL 3
                     </p>
                   </div>
                 </div>
