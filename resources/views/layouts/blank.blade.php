@@ -64,7 +64,6 @@
                 <a class="nav-link" href="{{url('/pasien')}}">
                   <i class="fas fa-procedures"></i>
                     <span>Data Pasien</span></a>
-                    //test
             </li>
 
             <!-- Nav Item - Pages Collapse Menu -->
@@ -99,6 +98,12 @@
                 <a class="nav-link" href="{{url('main-rawat-jalan')}}">
                     <i class="fas fa-bed"></i>
                     <span>Laporan Rawat Jalan</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{url('main_profile')}}">
+                    <i class="fas fa-hospital"></i>
+                    <span>Profile Rumah Sakit</span></a>
             </li>
 
             <!-- Sidebar Toggler (Sidebar) -->

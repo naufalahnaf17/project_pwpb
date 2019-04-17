@@ -62,3 +62,6 @@ Route::get('main-tempat-tidur/add', 'TempatTidurController@input');
 
 Route::get('main-rawat-jalan', 'RawatJalanController@index');
 Route::get('main-rawat-jalan/add', 'RawatJalanController@input');
+
+//Profile Gedung Rumah Sakit
+Route::get('/main_profile' , 'ProfileController@index');
