@@ -1,3 +1,4 @@
+// data spesialis
 $('#edit').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget) // Button that triggered the modal
     var nama_spesialis = button.data('spesialis')
@@ -20,6 +21,8 @@ $('#delete').on('show.bs.modal', function (event) {
 
 })
 
+// data gedung
+
 $('#editGedung').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget) // Button that triggered the modal
     var nama_gedung = button.data('nama_gedung')
@@ -41,6 +44,8 @@ $('#deleteGedung').on('show.bs.modal', function (event) {
 
 })
 
+
+// data Ruangan
 
 $('#editRuangan').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget) // Button that triggered the modal
