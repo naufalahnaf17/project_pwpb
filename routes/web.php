@@ -41,27 +41,28 @@ Route::patch('/spesialis/update', 'SpesialisController@update');
 Route::delete('/spesialis/delete', 'SpesialisController@destroy');
 
 // Route Ruangan
-
 Route::get('/data-ruangan', 'RuanganController@index');
 Route::post('/data-ruangan/add', 'RuanganController@store');
 Route::patch('/data-ruangan/update', 'RuanganController@update');
 Route::delete('/data-ruangan/delete', 'RuanganController@destroy');
 
 // Data Gedung
-
 Route::get('/data-gedung', 'GedungController@index');
 Route::post('/data-gedung/add', 'GedungController@store');
 Route::patch('/data-gedung/update', 'GedungController@update');
 Route::delete('/data-gedung/delete', 'GedungController@destroy');
 
-Route::get('main-pendaftaran', 'PendaftaranController@index');
-
+//Route Tempat Tidur
 Route::get('main-tempat-tidur', 'TempatTidurController@index');
 Route::get('main-tempat-tidur/add', 'TempatTidurController@input');
 
-
+//Router Laporan Rawat jalan
 Route::get('main-rawat-jalan', 'RawatJalanController@index');
 Route::get('main-rawat-jalan/add', 'RawatJalanController@input');
 
 //Profile Gedung Rumah Sakit
 Route::get('/main_profile' , 'ProfileController@index');
+
+//Route Pendafataran
+Route::get('main-pendaftaran', 'PendaftaranController@create');
+Route::post('main-pendaftaran/add', 'PendafataranController@store');
