@@ -37,12 +37,13 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <!-- @foreach($tempat as $row)
                         <tr>
                             <td>1</td>
-                            <td>006</td>
-                            <td>Ruangan melati</td>
-                            <td>Gedung Cut Nyak Dien</td>
-                            <td>Kosong</td>
+                            <td>{{$row->kode}}</td>
+                            <td>{{$row->nama_ruangan}}</td>
+                            <td>{{$row->nama_gedung}}</td>
+                            <td>{{$row->status}}</td>
                             <td>
                                 <center>
                                     <a href="#" class="btn btn-warning btn-circle">
@@ -58,6 +59,7 @@
                                 </center>
                             </td>
                         </tr>
+                        @endforeach -->
                     </tbody>
                 </table>
             </div>
