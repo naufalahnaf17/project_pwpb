@@ -12,8 +12,17 @@ class pasienController extends Controller
   {
     $data['pasien'] = \DB::table('t_pasien')
       ->get();
+<<<<<<< HEAD
     return view('pasien.main-pasien', $data);
   }
+=======
+      return view('pasien.main-pasien',$data);
+    }
+
+    public function input(){
+      return view('pasien.form-pasien');
+    }
+>>>>>>> 2c44ee1d3f302643c559630b7cbe8d6679f3e290
 
   public function input()
   {
