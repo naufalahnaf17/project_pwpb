@@ -1,4 +1,5 @@
 <?php
+// use Symfony\Component\Routing\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,12 +57,16 @@ Route::delete('/data-gedung/delete', 'GedungController@destroy');
 
 Route::get('main-pendaftaran', 'PendaftaranController@index');
 
+
+// Data Tempat Tidur
 Route::get('main-tempat-tidur', 'TempatTidurController@index');
 Route::get('main-tempat-tidur/add', 'TempatTidurController@input');
+Route::post('main-tempat-tidur', 'TempatTidurController@store');
+Route::delete('main-tempat-tidur/delete', 'TempatTidurController@destroy');
 
-
+// Data Rawat Jalan
 Route::get('main-rawat-jalan', 'RawatJalanController@index');
 Route::get('main-rawat-jalan/add', 'RawatJalanController@input');
 
 //Profile Gedung Rumah Sakit
-Route::get('/main_profile' , 'ProfileController@index');
+Route::get('/main_profile', 'ProfileController@index');

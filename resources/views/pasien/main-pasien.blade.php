@@ -36,8 +36,9 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>No RM</th>
+                            <th>No</th>
                             <th>Nama Pasien</th>
+                            <th>No RM</th>
                             <th>Gender</th>
                             <th>Golongan Darah</th>
                             <th>Tempat Lahir</th>
@@ -54,6 +55,7 @@
                         <tr>
                             <td>{{isset($i) ? ++$i : $i = 1 }}</td>
                             <td>{{$row->nama_pasien}}</td>
+                            <td>{{$row->no_rm}}</td>
                             <td>{{$row->gender}}</td>
                             <td>{{$row->golongan_darah}}</td>
                             <td>{{$row->tempat_lahir}}</td>
@@ -69,13 +71,9 @@
                             </td>
                             <td>
                                 <center>
-                                  <form class="" action="{{ url('/pasien/' . $row->id) }}" method="post">
-                                    @method('DELETE')
-                                    @csrf
-                                    <button class="btn btn-danger btn-circle ml-1" type="submit" name="button">
+                                    <button class="btn btn-danger btn-circle ml-1" type="submit" name="button" data-id = "{{$row->id}}" data-nama= "{{$row->nama_pasien}}" data-toggle = "modal" data-target = "#deletePasien">
                                         <i class="fas fa-trash"></i>
                                     </button>
-                                  </form>
                                 </center>
                             </td>
                         </tr>
@@ -91,4 +89,35 @@
 
 </div>
 <!-- End of Main Content -->
+@endsection
+
+<!-- Modal delete-->
+<div class="modal fade" id="deletePasien" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Konfirmasi</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <form class="" action="{{ url('/pasien/' . $row->id) }}" method="post">
+                    @method('DELETE')
+                    @csrf
+                    <input type = "hidden" value= "" name="id" id = "id">
+                    <button class="btn btn-danger " type="submit" name="button">
+                        Delete
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section('js')
+<script src="{{asset('js/modal.js')}}"></script>
 @endsection

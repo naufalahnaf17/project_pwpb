@@ -11,4 +11,9 @@ class Gedung extends Model
     protected $fillable = [
         'id_gedung', 'nama_gedung'
     ];
+
+    public function ruangan()
+    {
+        return $this->hasMany('App/Ruangan', 'id_gedung');
+    }
 }

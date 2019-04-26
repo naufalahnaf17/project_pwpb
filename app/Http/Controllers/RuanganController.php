@@ -21,8 +21,8 @@ class RuanganController extends Controller
     public function store(Request $request)
     {
         $rule = [
-            'no_ruangan' => 'Required',
-            'nama_ruangan' => 'Required',
+            'no_ruangan' => 'Required|unique:t_ruangan',
+            'nama_ruangan' => 'Required|unique:t_ruangan',
             'nama_gedung' => 'Required',
             'harga' => 'Required|numeric'
         ];

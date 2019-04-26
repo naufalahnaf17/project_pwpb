@@ -216,6 +216,13 @@
     $(window).on('load', function() {
         $('#tambah').modal('show');
     });
+
+    $(document).ready(function() {
+        $('#tambah').modal({
+            backdrop: 'static',
+            keyboard: false
+        });
+    });
 </script>
 @endif
 @endsection

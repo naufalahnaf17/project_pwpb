@@ -11,4 +11,10 @@ class Ruangan extends Model
     protected $fillable = [
         'id', 'no_ruangan', 'nama_ruangan', 'id_gedung'
     ];
+
+
+    public function gedung()
+    {
+        return $this->belongsTo('App/Gedung', 'id_gedung');
+    }
 }

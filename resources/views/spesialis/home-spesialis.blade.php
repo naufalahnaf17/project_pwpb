@@ -164,9 +164,21 @@
         </div>
     </div>
 </div>
-<script>
 
-</script>
 @section('js')
 <script src="{{asset('js/modal.js')}}"></script>
+@if(count($errors) > 0)
+<script type="text/javascript">
+    $(window).on('load', function() {
+        $('#tambah').modal('show');
+    });
+
+    $(document).ready(function() {
+        $('#tambah').modal({
+            backdrop: 'static',
+            keyboard: false
+        });
+    });
+</script>
+@endif
 @endsection

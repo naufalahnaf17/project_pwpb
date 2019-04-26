@@ -73,3 +73,26 @@ $('#deleteRuangan').on('show.bs.modal', function (event) {
     modal.find('.modal-footer #id_ruangan').val(id_ruangan)
 
 })
+
+
+// Data Ranjang 
+$('#deleteRanjang').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget) // Button that triggered the modal
+    var id = button.data('id')
+    var kode = button.data('kode')
+    console.log(id)
+    var modal = $(this)
+    modal.find('.modal-body').html("Apakah yakin anda akan menghapus Tempat Tidur dengan kode  <u><b> " + kode + "</b></u>")
+    modal.find('.modal-footer #id').val(id)
+
+})
+$('#deletePasien').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget) // Button that triggered the modal
+    var id = button.data('id')
+    var nama_pasien = button.data('nama')
+    console.log(nama_pasien)
+    var modal = $(this)
+    modal.find('.modal-body').html("Apakah yakin anda akan menghapus Pasien dengan nama  <u><b> " + nama_pasien + "</b></u>")
+    modal.find('.modal-footer #id').val(id)
+
+})

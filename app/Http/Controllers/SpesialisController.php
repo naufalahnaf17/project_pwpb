@@ -30,7 +30,8 @@ class SpesialisController extends Controller
             Alert::success('data berhasil di tambahkan!');
             return redirect('data-spesialis');
         } else {
-            return redirect('data-spesialis')->with('berhasil');
+            Alert::error('data Gagal di tambahkan!');
+            return redirect('data-spesialis');
         }
     }
 
@@ -51,7 +52,8 @@ class SpesialisController extends Controller
             Alert::success('data berhasil di edit!');
             return redirect('data-spesialis')->with('berhasil');
         } else {
-            return redirect('data-spesialis')->with('gagal');
+            Alert::error('data Gagal di edit!');
+            return redirect('data-spesialis');
         }
     }
 
@@ -67,7 +69,8 @@ class SpesialisController extends Controller
             Alert::success('data berhasil di hapus!');
             return redirect('data-spesialis')->with('berhasil');
         } else {
-            return redirect('data-spesialis')->with('gagal');
+            Alert::error('data Gagal di hapus!');
+            return redirect('data-spesialis');
         }
     }
 }
