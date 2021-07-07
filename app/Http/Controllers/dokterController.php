@@ -17,7 +17,7 @@ class dokterController extends Controller
   public function create()
   {
     return view('dokter.form-dokter');
-    //ini edit 
+    //ini edit
   }
 
   public function store(Request $request)
@@ -27,6 +27,5 @@ class dokterController extends Controller
   {
     $data['dokter'] = \DB::table('t_dokter')->find($id);
     return view('dokter.form-dokter', $data);
-
   }
 }

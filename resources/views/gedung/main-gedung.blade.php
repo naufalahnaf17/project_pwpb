@@ -1,10 +1,11 @@
 @extends('layouts.blank')
-@section('title','Data Spesialis')
+@section('title','Data Gedung')
 @section('content')
 <!-- Begin Page Content -->
 <div class="container-fluid">
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
+        <p>{{$random}}</p>
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
         </div>
@@ -26,7 +27,7 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>ID Spesialis</th>
+                            <th>ID Gedung</th>
                             <th>Nama Spesiali</th>
                             <th colspan="2">
                                 <center>Action</center>
@@ -34,21 +35,21 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($spesialis as $row)
+                        @foreach($gedung as $row)
                         <tr>
-                            <td>1</td>
+                            <td>{{isset($i) ? ++$i : $i = 1}}</td>
                             <td>{{$row->id}}</td>
-                            <td>{{$row->nama_spesialis}}</td>
+                            <td>{{$row->nama_gedung}}</td>
                             <td>
                                 <center>
-                                    <button class=" btn btn-warning btn-circle" data-toggle="modal" data-target="#edit" data-spesialis="{{$row->nama_spesialis}}" data-id={{$row->id}}>
+                                    <button class=" btn btn-warning btn-circle" data-toggle="modal" data-target="#editGedung" data-id_gedung="{{$row->id}}" data-nama_gedung="{{$row->nama_gedung}}">
                                         <i class=" fas fa-user-edit"></i>
                                     </button>
                                 </center>
                             </td>
                             <td>
                                 <center>
-                                    <button class="btn btn-danger" data-toggle="modal" data-target="#delete" data-id_spesialis="{{$row->id}}" data-spesialis="{{$row->nama_spesialis}}">
+                                    <button class="btn btn-danger" data-toggle="modal" data-target="#deleteGedung" data-id_gedung="{{$row->id}}" data-nama_gedung="{{$row->nama_gedung}}">
                                         <i class=" fas fa-trash"></i>
                                     </button>
                                 </center>
@@ -70,7 +71,7 @@
 
 @endsection
 <!-- modal edit -->
-<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="editGedung" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -80,18 +81,18 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{url('spesialis/update')}}" method="post">
+                <form action="{{url('data-gedung/update')}}" method="post">
                     @csrf
                     @method('PATCH')
                     <div class="form-group">
-                        <input type="hidden" id="id_spesialis" name="id_spesialis">
-                        <label for="exampleFormControlInput1">Nama Spesialis</label>
-                        <input type="text" class="form-control" placeholder="Masukkan Nama Spesialis" name='nama_spesialis' id="nama_spesialis">
-                        @if($errors->has('nama_spesialis'))
+                        <input type="hidden" id="id_gedung" name="id_gedung">
+                        <label for="exampleFormControlInput1">Nama gedung</label>
+                        <input type="text" class="form-control" placeholder="Masukkan Nama gedung" name='nama_gedung' id="nama_gedung">
+                        @if($errors->has('nama_gedung'))
                         <small id="emailHelp" class="form-text text-danger"><strong>{{$errors->first()}}</strong></small>
                         @endif
                     </div>
-                    <button type="submit" name="submit" class="btn btn-primary">Tambah</button>
+                    <button type="submit" name="submit" class="btn btn-primary">Update</button>
                 </form>
             </div>
 
@@ -101,17 +102,6 @@
 
 <!-- modal tambah -->
 <div class="modal fade" id="tambah" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    @if(count($errors)>0)
-    <div class="">
-        <strong>Perhatian</strong>
-        <br>
-        <ul>
-            @foreach($errors->all() as $error)
-            <li>{{$error}}</li>
-            @endforeach
-        </ul>
-    </div>
-    @endif
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -121,13 +111,13 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{url('spesialis')}}" method="post">
+                <form action="{{url('data-gedung/add')}}" method="post">
                     @csrf
                     <div class="form-group">
-                        <input type="hidden" id="id_spesialis" name="id_spesialis">
-                        <label for="exampleFormControlInput1">Nama Spesialis</label>
-                        <input type="text" class="form-control" placeholder="Masukkan Nama Spesialis" name='nama_spesialis' id="nama_spesialis">
-                        @if($errors->has('nama_spesialis'))
+                        <input type="hidden" id="id_gedung" name="id_gedung">
+                        <label for="exampleFormControlInput1">Nama Gedung</label>
+                        <input type="text" class="form-control" placeholder="Masukkan Nama Gedung" name='nama_gedung' id="nama_gedung">
+                        @if($errors->has('nama_gedung'))
                         <small id="emailHelp" class="form-text text-danger"><strong>{{$errors->first()}}</strong></small>
                         @endif
                     </div>
@@ -141,7 +131,7 @@
 
 
 <!-- Modal delete-->
-<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="deleteGedung" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -154,10 +144,10 @@
 
             </div>
             <div class="modal-footer">
-                <form action="{{url('/spesialis/delete')}}" method="post">
+                <form action="{{url('/data-gedung/delete')}}" method="post">
                     @method('DELETE')
                     @csrf
-                    <input type="hidden" id="id_spesialis" name="id_spesialis">
+                    <input type="hidden" id="id_gedung" name="id_gedung">
                     <button type="submit" class="btn btn-danger "> Delete</button>
                 </form>
             </div>
